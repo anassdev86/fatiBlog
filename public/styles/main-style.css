@@ -1,0 +1,85 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.4;
+    font-size: 1.4rem;
+}
+
+.container{
+    max-width: 75%;
+    margin: 2rem auto;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+
+
+.form .form_gp{
+  margin-bottom: 1rem;
+  position: relative;
+}
+.form .form_gp .form_input{
+    font-size: 1.7rem;
+    padding: .4rem 1.65rem;
+    outline: none;
+
+}
+.form_gp label{
+    position: absolute;
+    font-size: 1.8rem;
+    right: 2rem;
+    top: .5rem;
+    color: #ccc;
+}
+.form_gp label:hover{ z-index: -1;}
+input[type="text"]:focus ~ label{
+   font-size: 1.2rem;
+   top: -.38rem;
+   background-color: #fff;
+}
+
+.form_text{
+    outline: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+select{
+    width: 35rem;
+    font-size: 1.76rem;
+    padding: 1rem;
+}
+
+.heading_primary{
+    font-size: 3.4rem;
+    margin-bottom: 2.4rem;
+}
+.form_btn{
+    background-color: blue;
+    color: #fff;
+    font-size: 2.2rem;
+    outline: none;
+    border: none;
+    padding: .9rem 1.55rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.form_btn:hover{background-color: #777;}
+.form_btn:focus{
+    border: 2px solid green;
+}
+@media only screen and (max-width: 600px){
+    html{font-size: 57%;}
+    .container{max-width: 100%;}
+    select{width: 30rem;}
+}

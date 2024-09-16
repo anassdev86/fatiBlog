@@ -10,7 +10,18 @@ const blogSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    image: String
+    text: {
+        type: String,
+        required: true,
+    },
+    description: {
+       type: String,
+       default: "fadi7a"
+    },
+    image: {
+        type: String,
+        required: [true, 'Post should be have a image']
+    }
 });
 
 const blogModel = mongoose.model('Blog', blogSchema);

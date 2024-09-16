@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FatiBlog</title>
+    <link rel="stylesheet" href="./styles/main-style.css">
 </head>
-<body>
+<body dir="rtl">
   <div class="container">
-    HELLO IN FATI BLOG
+     <h4 class="heading_primary">إضافة مقال جديد</h4>
+     <form action="" class="form">
+        <div class="form_gp">
+          <input type="text"  name="title" class="form_input">
+          <label for="title">أدخل عنوان المقال</label>
+        </div>
+        <div class="form_gp">
+          <textarea class="form_text" id="txt" cols="30" rows="10" placeholder="أكتب المقال ..."></textarea>
+        </div>
+        <div class="form_gp">
+          <select name="description" id="">
+            <option value="رياضة">رياضة</option>
+            <option value="">موضة و أزياء</option>
+            <option value="صحة و غذاء">صحة و غذاء</option>
+            <option value="أخبار المشاهير">أخبار المشاهير</option>
+            <option value="فضائح">فضائح</option>
+            <option value="مقاطع ساخنة">مقاطع ساخنة</option>
+          </select>
+        </div>
+        <div class="form_gp">
+          <label for="photo"></label>
+          <input type="file" name="photo" id="" accept="png jpg jpeg web">
+        </div>
+        <div class="form_gp">
+          <input type="submit" class="form_btn" value="أضف المقال">
+        </div>
+     </form>
   </div>
+  <script>
+    const form = document.querySelector('.form');
+
+    const sendData = async (e) => {
+         try{
+          e.preventDefault();
+          const fm = new FormData(form);
+          const res = await fetch('http://localhost:8080/api/v1/blog/createblog', {
+            method: 'POST',
+            body: fm
+          })
+
+         }catch(err){
+          console.log(err)
+         }
+    };
+
+    form.addEventListener('submit', sendData);
+  </script>
 </body>
 </html>
