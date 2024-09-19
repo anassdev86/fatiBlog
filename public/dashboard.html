@@ -81,7 +81,7 @@
         
         const fetchData = async e => {
             try{
-              const res = await fetch('http://localhost:8080/api/v1/blog');
+              const res = await fetch('https://fatiblog.onrender.com/api/v1/blog');
               const result = await res.json();
               const { data } = result.data;
               
@@ -98,7 +98,7 @@
             });
             Array.from(document.querySelectorAll('.del').forEach(el => {
                     el.addEventListener('click', e => {
-                        fetch('http://localhost:8080/api/v1/blog/' + e.target.closest('.del').id, {
+                        fetch('https://fatiblog.onrender.com/api/v1/blog/' + e.target.closest('.del').id, {
                             method: 'DELETE'
                         })
                         .then(res => res.json()).then(msg => {
