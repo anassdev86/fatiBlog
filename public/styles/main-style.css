@@ -14,7 +14,10 @@ body{
     font-size: 1.4rem;
 }
 
+
+
 .container{
+    position: relative;
     max-width: 75%;
     margin: 2rem auto;
     border: 1px solid black;
@@ -43,7 +46,7 @@ body{
 .form_gp label:hover{ z-index: -1;}
 input[type="text"]:focus ~ label{
    font-size: 1.2rem;
-   top: -.38rem;
+   top: -.48rem;
    background-color: #fff;
 }
 
@@ -82,4 +85,11 @@ select{
     html{font-size: 57%;}
     .container{max-width: 100%;}
     select{width: 30rem;}
+}
+
+.container .box_msg{
+    background-color: green;
+    padding: 1rem;
+    color: white;
+    display: none;
 }

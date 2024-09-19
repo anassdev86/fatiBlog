@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="./dashboard.html">
+    <link rel="stylesheet" href="styles/main-style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    table{
+        border: 1px solid #ccc;
+        padding: 1rem;
+    }
+    table tr th{
+        background-color: #ccc;
+    }
+    table tr {
+        border: 1px solid #ccc;
+    }
+    table tr th{
+        
+        width: min-content;
+        padding: .5rem;
+        text-align: center;
+    }
+    table tr td {
+        position: relative;
+        cursor: pointer;
+    }
+    table tr td p {
+       position: absolute;
+       bottom: 0;
+       left: -6rem;
+       background-color: #fff;
+       border: 1px solid #ccc;
+       padding: 10px;
+       display: none;
+       width: 30rem;
+       z-index: 10;
+
+    }
+    table tr .texto:hover p {
+        display: block;
+    }
+
+    .del{
+        border: none;
+        cursor: pointer;
+        padding: .3rem;
+        border-radius: .4rem;
+        transition: all .3s;
+    }
+    table tr td .del:hover{
+       background-color: red;
+       color: #fff;
+
+    }
+
+</style>
+<body dir="rtl">
+    <div class="container" >
+        <div class="box_msg"><p class="msg">تم حذف المقال بنجاح</p></div>
+        <header class="header">
+            <a href="./index.html">كتابة مقال جديد</a>
+        </header>
+        <table style="width:100%" class="table">
+            <tr>
+                <th>عنوان المقال</th>
+                <th>نص المقال</th>
+                <th>صورة المقال</th>
+                <th>date</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const table = document.querySelector('.table');
+        
+        const fetchData = async e => {
+            try{
+              const res = await fetch('http://localhost:8080/api/v1/blog');
+              const result = await res.json();
+              const { data } = result.data;
+              
+              data.forEach(el => {
+                const tr = `<tr>
+                     <td>${el.title}</td>
+                     <td><img src='${el.image}' width='70' /></td>
+                     <td class='texto'>${el.text.slice(0, 13)}... <p>${el.text}</p></td>
+                     <td>${new Date(el.date).getUTCDate()}</td>
+                     <td><button><i class="fa-regular fa-pen-to-square"></i></button></td>
+                       <td><button class='del' id='${el._id}'><i class="fa-solid fa-trash"></i></button></td>
+                 </tr>`;
+                table.insertAdjacentHTML('beforeend', tr);
+            });
+            Array.from(document.querySelectorAll('.del').forEach(el => {
+                    el.addEventListener('click', e => {
+                        fetch('http://localhost:8080/api/v1/blog/' + e.target.closest('.del').id, {
+                            method: 'DELETE'
+                        })
+                        .then(res => res.json()).then(msg => {
+                            document.querySelector('.box_msg').style.display = "block";
+                        })
+                        .catch(err => console.log(err))
+                    })
+           }));
+
+            }catch(err){
+                console.log(err);
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>
