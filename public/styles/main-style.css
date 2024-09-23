@@ -9,10 +9,12 @@ html{
 }
 
 body{
+    position: relative;
     font-family: sans-serif;
     line-height: 1.4;
     font-size: 1.4rem;
 }
+
 
 
 
@@ -26,6 +28,16 @@ body{
 
 
 
+.container
+.box_msg{
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 100%;
+    background-color: green;
+    padding: 1rem;
+}
+.box_msg p{ color: #fff;}
 .form .form_gp{
   margin-bottom: 1rem;
   position: relative;
@@ -85,11 +97,4 @@ select{
     html{font-size: 57%;}
     .container{max-width: 100%;}
     select{width: 30rem;}
-}
-
-.container .box_msg{
-    background-color: green;
-    padding: 1rem;
-    color: white;
-    display: none;
 }

@@ -14,14 +14,14 @@
      <h4 class="heading_primary">إضافة مقال جديد</h4>
      <form action="" class="form">
         <div class="form_gp">
-          <input type="text"  name="title" class="form_input">
+          <input type="text"  name="title" class="form_input f_input">
           <label for="title" id="lb">أدخل عنوان المقال</label>
         </div>
         <div class="form_gp">
-          <textarea class="form_text" name='text' id="txt" cols="30" rows="10" placeholder="أكتب المقال ..."></textarea>
+          <textarea class="form_text f_input" name='text' id="txt" cols="30" rows="10" placeholder="أكتب المقال ..."></textarea>
         </div>
         <div class="form_gp">
-          <select name="description" id="">
+          <select name="description" id="" class="f_input">
             <option value="رياضة">رياضة</option>
             <option value="">موضة و أزياء</option>
             <option value="صحة و غذاء">صحة و غذاء</option>
@@ -32,42 +32,13 @@
         </div>
         <div class="form_gp">
           <label for="photo"></label>
-          <input type="file" name="photo" id="" accept="png jpg jpeg web">
+          <input type="file" name="photo" id="" class="f_input" accept="png jpg jpeg web">
         </div>
         <div class="form_gp">
-          <input type="submit" class="form_btn" value="أضف المقال">
+          <input type="submit" class="form_btn" value="أضف المقال" disabled>
         </div>
      </form>
   </div>
-  <script>
-    const form = document.querySelector('.form');
-    const inputTitle = document.querySelector('input[type="text"]');
-    
-    inputTitle.addEventListener('keypress', e => {
-      document.getElementById('lb').style.display = 'none';
-    });
-
-     
-
-    const sendData = async (e) => {
-         try{
-          e.preventDefault();
-          const fm = new FormData(form);
-          fm.append('text', document.getElementById('txt').value);
-          const res = await fetch('http://localhost:8080/api/v1/blog/createblog', {
-            method: 'POST',
-            body: fm
-          });
-          const result = await res.json();
-
-          console.log(result);
-
-         }catch(err){
-          console.log(err)
-         }
-    };
-
-    form.addEventListener('submit', sendData);
-  </script>
+  <script src="./js/main_script.js"></script>
 </body>
 </html>
