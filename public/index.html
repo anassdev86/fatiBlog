@@ -8,14 +8,16 @@
 </head>
 <body dir="rtl">
   <div class="container">
-     <header class="header">
-        <a href="./dashboard.html">شاهد جميع مقالاتك من هنا</a>
+     <header class="header" dir="ltr">
+        <span class="header_link">
+          <a href="./dashboard.html">Dashboard</a>
+          <i class="fa-solid fa-eye"></i>
+        </span>
      </header>
      <h4 class="heading_primary">إضافة مقال جديد</h4>
      <form action="" class="form">
         <div class="form_gp">
-          <input type="text"  name="title" class="form_input f_input">
-          <label for="title" id="lb">أدخل عنوان المقال</label>
+          <input type="text"  name="title" class="form_input f_input" placeholder="أدخل عنوان المقال">
         </div>
         <div class="form_gp">
           <textarea class="form_text f_input" name='text' id="txt" cols="30" rows="10" placeholder="أكتب المقال ..."></textarea>
@@ -40,5 +42,6 @@
      </form>
   </div>
   <script src="./js/main_script.js"></script>
+  <script src="https://kit.fontawesome.com/b77cec4a77.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -13,17 +13,30 @@ body{
     font-family: sans-serif;
     line-height: 1.4;
     font-size: 1.4rem;
+
+    background-color: #D6F6DD;
+    color: #F4989C;
+
+    padding: 1rem;
+
+    
 }
 
-
+input,textarea{
+    border: 1px solid #F4989C;
+    color: #DAC4F7;
+    border-radius: .4rem;
+    padding: 1.5rem 2rem;
+}
 
 
 .container{
     position: relative;
     max-width: 75%;
     margin: 2rem auto;
-    border: 1px solid black;
+    border: 1px solid #F4989C;
     padding: 1rem;
+    border-radius: .4rem;
 }
 
 
@@ -43,8 +56,8 @@ body{
   position: relative;
 }
 .form .form_gp .form_input{
-    font-size: 1.7rem;
-    padding: .4rem 1.65rem;
+    font-size: 1.9rem;
+    padding: 1.2rem 2.5rem;
     outline: none;
 
 }
@@ -64,8 +77,8 @@ input[type="text"]:focus ~ label{
 
 .form_text{
     outline: none;
-    padding: 1rem;
-    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.9rem;
 }
 
 select{
@@ -79,7 +92,7 @@ select{
     margin-bottom: 2.4rem;
 }
 .form_btn{
-    background-color: blue;
+    background-color: #F4989C;
     color: #fff;
     font-size: 2.2rem;
     outline: none;
@@ -91,10 +104,46 @@ select{
 }
 .form_btn:hover{background-color: #777;}
 .form_btn:focus{
-    border: 2px solid green;
+    border: 2px solid #ccc;
+}
+
+.header{
+    background-color: #F4989C;
+    margin-bottom: 2.4rem;
+}
+.header_link{
+    display: inline-block;
+    padding: 1.5rem 2.25rem;
+
+    cursor: pointer;
+
+    border-radius: .5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    
+}
+.header_link a:active{
+    color: white;
+}
+.header_link i,
+.header_link a,
+.header_link a:link{
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-size: 1.7rem;
+    transition: all 0.3s ease;
+}
+.header_link:hover{
+    background-color: #777;
 }
 @media only screen and (max-width: 600px){
     html{font-size: 57%;}
     .container{max-width: 100%;}
     select{width: 30rem;}
 }
+
+
