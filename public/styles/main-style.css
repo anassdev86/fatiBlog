@@ -77,8 +77,8 @@ input[type="text"]:focus ~ label{
 
 .form_text{
     outline: none;
-    padding: 1rem 1.5rem;
-    font-size: 1.9rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
 }
 
 select{
