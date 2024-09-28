@@ -18,6 +18,7 @@
     }
     table tr {
         border: 1px solid #ccc;
+        color: rebeccapurple;
     }
     table tr th{
         
@@ -25,10 +26,21 @@
         padding: .5rem;
         text-align: center;
     }
+    table tr th:last-child{
+        width: max-content;
+    }
     table tr td {
         position: relative;
         cursor: pointer;
+        height: 10rem;
+        padding: .3rem;
     }
+    table tr td.centered{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
     table tr td p {
        position: absolute;
        bottom: 0;
@@ -45,33 +57,58 @@
         display: block;
     }
 
-    .del{
+    .del, .edit{
+        display: inline-block;
         border: none;
         cursor: pointer;
-        padding: .3rem;
+        padding: .6rem .9rem;
         border-radius: .4rem;
         transition: all .3s;
+
+        border: none;
+        outline: none;
+    }
+    .del:focus{
+        border: 2px solid red;
     }
     table tr td .del:hover{
        background-color: red;
        color: #fff;
+       transform: scale(.9);
 
+    }
+
+    .image{
+        width: 20%;
+    }
+
+    .image img {
+        width: 100%;
     }
 
 </style>
 <body dir="rtl">
     <div class="container" >
-        <header class="header">
-            <a href="./index.html">كتابة مقال جديد</a>
-        </header>
+        <header class="header" dir="ltr">
+            <span class="header_link">
+              <a href="./index.html">ADD NEW BLOG</a>
+              <i class="fa-solid fa-plus"></i>
+            </span>
+         </header>
+         <section class="section_info">
+            <div class="section_info--box">
+                <span class="section_info--name">عدد المقالات </span>
+                <span class="section_info--number"></span>
+            </div>
+         </section>
         <table style="width:100%" class="table">
             <tr>
                 <th>عنوان المقال</th>
                 <th>نص المقال</th>
                 <th>صورة المقال</th>
-                <th>date</th>
-                <th>edit</th>
-                <th>delete</th>
+                <th>تاريخ المقال</th>
+                <th></th>
+                <th></th>
             </tr>
         </table>
     </div>
